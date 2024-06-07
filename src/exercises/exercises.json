@@ -1,0 +1,281 @@
+[
+    {
+        "title": "Passwörter",
+        "description": "Schreibe eine Regex, die alle Passwörter findet, die aus 8 oder mehr Zeichen bestehen. Matche die vollständige Zeile.",
+        "type": "match",
+        "lines": [
+            "qwerty",
+            "password",
+            "123456",
+            "12345678",
+            "admin",
+            "Mb2.r5oHf-0t"
+        ],
+        "indicesToMatch": [
+            [],
+            [[0, 8]],
+            [],
+            [[0, 8]],
+            [],
+            [[0, 12]]
+        ]
+    },
+    {
+        "title": "Zeilen mit \"D\"",
+        "description": "Schreibe eine Regex, die alle Zeilen findet, die mit \"D\" beginnen. Matche die vollständige Zeile.",
+        "type": "match",
+        "lines": [
+            "Schönes Wetter draußen im Dorf",
+            "Die Sonne scheint",
+            "Das Eis schmeckt heute gut",
+            "Regexes sind case sensitiv",
+            "das kann man hier schön zeigen",
+            "aber irgendwas is immer"
+        ],
+        "indicesToMatch": [
+            [],
+            [[0, 17]],
+            [[0, 26]],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "title": "Zeilen mit Haus",
+        "description": "Schreibe eine Regex, die alle Zeilen findet, die mit \"Haus.\" enden. Matche die vollständige Zeile.",
+        "type": "match",
+        "lines": [
+            "Diese Zeile endet nicht mit Haus.",
+            "Diese hier schon.",
+            "Haus. Jetzt ist alles aus.",
+            "Wir gehen zum Bootshaus.",
+            "Oder zum Boots-Haus.",
+            "Vielleicht bleiben wir auch zu Haus!"
+        ],
+        "indicesToMatch": [
+            [[0, 33]],
+            [],
+            [],
+            [],
+            [[0, 20]],
+            []
+        ]
+    },
+    {
+        "title": "Aufeinanderfolgende \"a\"s",
+        "description": "Schreibe eine Regex, die alle Zeilen findet, die mindestens 2 aber höchstens 4 aufeinanderfolgende \"a\"s enthalten. Matche die vollständige Zeile.",
+        "type": "match",
+        "lines": [
+            "Aachen atmet auf",
+            "args",
+            "aaaah",
+            "ahhhhhhhh",
+            "ahaaa",
+            "aach"
+        ],
+        "indicesToMatch": [
+            [],
+            [],
+            [[0, 5]],
+            [],
+            [[0, 5]],
+            [[0, 4]]
+        ]
+    },
+    {
+        "title": "Mehr!",
+        "description": "Schreibe eine Regex, die alle Zeilen findet, die mit genau einem \"m\" beginnen, dann beliebig viele \"e\"s enthalten und schließlich mit \"hr\" enden. Matche die vollständige Zeile.",
+        "type": "match",
+        "lines": [
+            "mehr",
+            "mmmmmehr",
+            "meeeeehr",
+            "meeeeeeeeehrrrr",
+            "mmmmeeeehr",
+            "meeeeehhhhhr"
+        ],
+        "indicesToMatch": [
+            [[0, 4]],
+            [],
+            [[0, 8]],
+            [],
+            [],
+            []
+        ]
+    },
+    {
+        "title": "Leerzeichen einfügen",
+        "description": "Schreibe eine Regex, die 4 Leerzeichen am Anfang jeder Zeile einfügt",
+        "type": "replace",
+        "lines": [
+            "title: string,",
+            "description: string,",
+            "type: string,",
+            "lines: string[],",
+            "linesToMatch?: number[],",
+            "expectedLines?: string[],"
+        ],
+        "expectedLines": [
+            "    title: string,",
+            "    description: string,",
+            "    type: string,",
+            "    lines: string[],",
+            "    linesToMatch?: number[],",
+            "    expectedLines?: string[],"
+        ]
+    },
+    {
+        "title": "Semikolon einfügen",
+        "description": "Schreibe eine Regex, die ein Semikolon am Ende jeder Zeile einfügt, die mit einer \")\" endet",
+        "type": "replace",
+        "lines": [
+            "if (selectedExerciseIds.length === 0) {",
+            "  if (currentRouteId <= 1) {",
+            "    router.push({name: \"home\"})",
+            "  } else {",
+            "    router.push({name: \"exercise\", params: {id: currentRouteId - 1}})",
+            "  }",
+            "}"
+        ],
+        "expectedLines": [
+            "if (selectedExerciseIds.length === 0) {",
+            "  if (currentRouteId <= 1) {",
+            "    router.push({name: \"home\"});",
+            "  } else {",
+            "    router.push({name: \"exercise\", params: {id: currentRouteId - 1}});",
+            "  }",
+            "}"
+        ]
+    },
+    {
+        "title": "Datum (vereinfacht)",
+        "description": "Schreibe eine Regex, die auf die Struktur eines Datums matcht. Das Datum liegt im ISO 8601 Format (YYYY-MM-DD) vor.",
+        "type": "match",
+        "lines": [
+            "2023-10-05",
+            "2023-12-1",
+            "1999-12-31",
+            "2023-2-28",
+            "abcd-ef-gh",
+            "2024-06-06"
+        ],
+        "indicesToMatch": [
+            [[0, 10]],
+            [],
+            [[0, 10]],
+            [],
+            [],
+            [[0, 10]]
+        ]
+    },
+    {
+        "title": "E-Mail-Adresse (vereinfacht)",
+        "description": "Schreibe eine Regex, die auf eine E-Mail-Adresse matcht. Nutzername und Domain der E-Mail-Adresse sollen hier lediglich aus Buchstaben, Zahlen sowie Punkt und Bindestrich bestehen.",
+        "type": "match",
+        "lines": [
+            "benutzer@lise",
+            "@domain.com",
+            "user.name@example.com",
+            "benutzer@.de",
+            "hans-dampf@allen-gassen.de",
+            "username@sub.domain.com"
+        ],
+        "indicesToMatch": [
+            [],
+            [],
+            [[0, 21]],
+            [],
+            [[0, 26]],
+            [[0, 23]]
+        ]
+    },
+    {
+        "title": "Telefonnummer (vereinfacht)",
+        "description": "Schreibe eine Regex, die auf die auf eine Telefonnummer mit einer 4-stelligen Vorwahl matcht. Die Vorwahl kann dabei in Klammern geschrieben werden und/oder mit einem Leerzeichen vom Rest der Telefonnummer separiert sein. Inklusive Vorwahl darf die Gesamtlänge der Telefonnummer maximal 11 betragen.",
+        "type": "match",
+        "lines": [
+            "0900 5123456",
+            "02285641781",
+            "(030)1234567",
+            "022112345678",
+            "(0214)1234",
+            "(0221) 1234567"
+        ],
+        "indicesToMatch": [
+            [[0, 12]],
+            [[0, 11]],
+            [],
+            [],
+            [[0, 10]],
+            [[0, 14]]
+        ]
+    },
+    {
+        "title": "Kommentare entfernen",
+        "description": "Entferne alle Kommentare im folgenden Code. Bitte lasse dabei keine abschließenden Leerzeichen übrig. Vorsicht in dem Code wurden teilweise Tabs und Leerzeichen gemischt verwendet.",
+        "type": "replace",
+        "lines": [
+            "function calculateSum(a, b) {\t\t// Define a function named calculateSum with parameters a and b",
+            "    let sum = a + b; \t// Calculate the sum of a and b, store it in sum",
+            "    if (sum > 100) { \t\t// Check if the sum is greater than 100",
+            "        return \"That's a big number!\";    \t// If true, return a message indicating it's a big number",
+            "    } else {// Otherwise",
+            "        return \"That's a small number.\";  \t  // Return a message indicating it's a small number",
+            "    }",
+            "}"
+        ],
+        "expectedLines": [
+            "function calculateSum(a, b) {",
+            "    let sum = a + b;",
+            "    if (sum > 100) {",
+            "        return \"That's a big number!\";",
+            "    } else {",
+            "        return \"That's a small number.\";",
+            "    }",
+            "}"
+        ]
+    },
+    {
+        "title": "Sonderzeichen entfernen",
+        "description": "Ein Fremdsystem an welches ihr Daten senden müsst, hat Schwierigkeiten mit Sonderzeichen. Entsprechend sollen diese einfach durch ein Fragezeichen ersetzt werden. Problematisch sind: #$*@|~;",
+        "type": "replace",
+        "lines": [
+            "Bitte senden Sie mir ein Angebot an info@meinemail.com",
+            "Vergiss nicht, den Beitrag mit #Sommer2024 zu versehen",
+            "Sollte nicht mehr als ~50 $ kosten",
+            "Thermometer kann wie folgt getrennt werden: Ther|mo|me|ter",
+            "Man kann nicht jede Frage nur mit Ja oder Nein beantworten; oft muss man etwas weiter ausholen",
+            "So eine Schei*e!"
+        ],
+        "expectedLines": [
+            "Bitte senden Sie mir ein Angebot an info?meinemail.com",
+            "Vergiss nicht, den Beitrag mit ?Sommer2024 zu versehen",
+            "Sollte nicht mehr als ?50 ? kosten",
+            "Thermometer kann wie folgt getrennt werden: Ther?mo?me?ter",
+            "Man kann nicht jede Frage nur mit Ja oder Nein beantworten? oft muss man etwas weiter ausholen",
+            "So eine Schei?e!"
+        ]
+    },
+    {
+        "title": "UUID Version 4",
+        "description": "Stelle sicher, dass es sich um gültige UUIDs in Version 4 handelt. Matche die komplette UUID. UUIDs der Version 4 haben folgenden Aufbau: \"xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx\". Ein x steht dabei für einen Hexwert (0-F). Bei M muss eine 4 stehen und bei N kann entweder 8, 9, A oder B stehen. Groß-/Kleinschreibung spielt bei UUIDs keine Rolle.",
+        "type": "match",
+        "lines": [
+            "d32cc97c-4727-4fe5-9eef-f2901d7d70dd",
+            "8D8AC610-566D-4EF0-AC22-186B2A5ED793",
+            "7283800a-2401-11ef-7454-0242ac120002",
+            "018fed8d-7c5a-7b48-C316-032dab7129be",
+            "fc9g24ad-d495-4b4c-Ac8d-e4b875b4231a",
+            "e359B125-8923-4376-BD5d-864f16e3D57a"
+        ],
+        "indicesToMatch": [
+            [[0, 36]],
+            [[0, 36]],
+            [],
+            [],
+            [],
+            [[0, 36]]
+        ]
+    }
+]
