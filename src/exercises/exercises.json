@@ -277,5 +277,49 @@
             [],
             [[0, 36]]
         ]
+    },
+    {
+        "title": "Strings",
+        "description": "Matche alle Strings in folgendem Codeausschnitt",
+        "type": "match",
+        "lines": [
+            "if (selectedExerciseIds.length === 0) {",
+            "  if (currentRouteId >= exercises.length) {",
+            "    router.push({name: }\"home\", query: {success: \"true\"}});",
+            "  } else {",
+            "    router.push({name: \"exercise\", params: {id: currentRouteId + 1}});",
+            "  }",
+            "}"
+        ],
+        "indicesToMatch": [
+            [],
+            [],
+            [[24, 30], [49, 55]],
+            [],
+            [[23, 33]],
+            [],
+            []
+        ]
+    },
+    {
+        "title": "Aufeinanderfolgende \"o\"s",
+        "description": "Schreibe eine Regex, die alle Zeilen findet, die genau 2 aufeinanderfolgende \"o\"s enthalten",
+        "type": "match",
+        "lines": [
+            "Otto ordnet oft Oliven orthographisch",
+            "Die Zooorganisation war schlecht",
+            "Der Zoo bleibt heute geschlossen",
+            "Es wird wohl zum Blackfoot Beach gehen",
+            "Hier gibt's nichts zu sehen",
+            "Spring Boot, Groovy und OOP"
+        ],
+        "indicesToMatch": [
+            [],
+            [],
+            [[5, 7]],
+            [[23, 25]],
+            [],
+            [[8, 10], [15, 17]]
+        ]
     }
 ]
